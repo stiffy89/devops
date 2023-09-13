@@ -27,7 +27,8 @@
     "app/resources/fiori"
   ],
   "scripts": {
-    "start": "cds run"
+    "start": "cds run",
+    "run" : "cds watch"
   },
   "eslintConfig": {
     "extends": "eslint:recommended",
