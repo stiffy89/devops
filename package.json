@@ -18,7 +18,8 @@
     "passport": "^0.4.1",
 
     "debug": "^4.3",
-    "express": "^4"
+    "express": "^4",
+    "cf-nodejs-logging-support": "^6"
   },
   "devDependencies": {
     "@sap/ux-specification": "^1.96.4"

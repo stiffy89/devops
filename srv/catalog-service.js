@@ -1,5 +1,8 @@
 const cds = require('@sap/cds');
 const debug = require('debug')('srv:catalog-service');
+const log = require('cf-nodejs-logging-support');
+log.setLoggingLevel('info');
+log.registerCustomFields(["country", "amount"]);
 
 module.exports = cds.service.impl(async function () {
 
@@ -20,6 +23,7 @@ module.exports = cds.service.impl(async function () {
                 each.comments += ' ';
             each.comments += 'Exceptional!';
             debug(each.comments, {"country": each.country, "amount": each.amount});
+            log.info(each.comments, {"country": each.country, "amount": each.amount});
         } else if (each.amount < 150) {
             each.criticality = 1;
         } else {
@@ -87,7 +91,7 @@ module.exports = cds.service.impl(async function () {
         results.scopes.identified = req.user.is('identified-user');
         results.scopes.authenticated = req.user.is('authenticated-user');
         results.scopes.Viewer = req.user.is('Viewer');
-        results.scopes.Admin = req.user.is('Admin');
+        results.scopes.sr = req.user.is('Admin');
         return results;
     });
 
