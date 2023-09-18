@@ -23,7 +23,7 @@ module.exports = cds.service.impl(async function () {
                 each.comments += ' ';
             each.comments += 'Exceptional!';
             debug(each.comments, {"country": each.country, "amount": each.amount});
-            log.info(each.comments, {"country": each.country, "amount": each.amount});  
+            log.info(each.comments, {"country": each.country, "amount": each.amount});   
         } else if (each.amount < 150) {
             each.criticality = 1;
         } else {
